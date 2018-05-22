@@ -2,100 +2,100 @@
 $(document).ready(function () {
 
     // To generates random number between 19 - 120
-    var Random = Math.floor(Math.random() * 120 + 19)
+    var random = Math.floor(Math.random() * 120 + 19)
 
     // Display random number
-    $('#scoreToMatch').text(Random);
+    $('.randomNumber').text(random);
 
     // Generating random number between 1 - 12 for each crystal
-    var num1 = Math.floor(Math.random() * 12 + 1)
-    var num2 = Math.floor(Math.random() * 12 + 1)
-    var num3 = Math.floor(Math.random() * 12 + 1)
-    var num4 = Math.floor(Math.random() * 12 + 1)
+    var num1 = Math.floor(Math.random() * 12 + 1);
+    var num2 = Math.floor(Math.random() * 12 + 1);
+    var num3 = Math.floor(Math.random() * 12 + 1);
+    var num4 = Math.floor(Math.random() * 12 + 1);
+    var allNum = [num1, num2, num3, num4];
+    console.log(allNum)
 
     // Main variables to track of total points, wins, and losses 
     var playerTotal = 0;
     var wins = 0;
     var losses = 0;
 
-    $('#wins').text(wins);
-    $('#losses').text(losses);
+    $('.wins').text(wins);
+    $('.losses').text(losses);
 
     // To reset game after win/lose
     function reset() {
-        Random = Math.floor(Math.random() * 102 + 19);
-        console.log(Random)
-        $('#scoreToMatch').text(Random);
-        num1 = Math.floor(Math.random() * 12 + 1);
-        num2 = Math.floor(Math.random() * 12 + 1);
-        num3 = Math.floor(Math.random() * 12 + 1);
-        num4 = Math.floor(Math.random() * 12 + 1);
+        random = Math.floor(Math.random() * 102 + 19);
+        console.log(random)
+        $('.randomNumber').text(random);
+        allNum = Math.floor(Math.random() * 12 + 1);
         playerTotal = 0;
-        $('#totalScore').text(playerTotal);
+        $('#scoreDisplay').text(playerTotal);
     }
 
-    // Display wins
-    function woohoo() {
-        alert("Congrats! You won!");
+    // Displaying wins
+    function winner() {
+        alert("Keep up the good work!");
         wins++;
-        $('#wins').text(wins);
+        $('.wins').text(wins);
         reset();
     }
 
-    // Display losses
+    // Displaying losses
     function loser() {
-        alert("Sorry! You lose!");
+        alert("Better luck next time Loser!");
         losses++;
-        $('#losses').text(losses);
+        $('.losses').text(losses);
         reset()
     }
 
-    // Clicking crystals
-    $('.red').on('click', function () {
+    // On click, add value to play total score
+    $('#red').on('click', function () {
         playerTotal = playerTotal + num1;
         console.log("New playerTotal= " + playerTotal);
-        $('#totalScore').text(playerTotal);
+        $('.scoreDisplay').text(playerTotal);
 
-        //Win & lose conditions
-        if (playerTotal == Random) {
-            woohoo();
+        // Set winning/losing conditions
+        if (playerTotal == random) {
+            winner();
         }
-        else if (playerTotal > Random) {
+        else if (playerTotal > random) {
             loser();
         }
     })
-    $('.blue').on('click', function () {
+
+    $('#blue').on('click', function () {
         playerTotal = playerTotal + num2;
         console.log("New playerTotal= " + playerTotal);
-        $('#totalScore').text(playerTotal);
-        if (playerTotal == Random) {
-            woohoo();
+        $('.scoreDisplay').text(playerTotal);
+        if (playerTotal == random) {
+            winner();
         }
-        else if (playerTotal > Random) {
+        else if (playerTotal > random) {
             loser();
         }
     })
-    $('.yellow').on('click', function () {
+
+    $('#teal').on('click', function () {
         playerTotal = playerTotal + num3;
         console.log("New playerTotal= " + playerTotal);
-        $('#totalScore').text(playerTotal);
-
-        if (playerTotal == Random) {
-            woohoo();
+        $('.scoreDisplay').text(playerTotal);
+        if (playerTotal == random) {
+            winner();
         }
-        else if (playerTotal > Random) {
+        else if (playerTotal > random) {
             loser();
         }
     })
-    $('.green').on('click', function () {
+
+    $('#green').on('click', function () {
         playerTotal = playerTotal + num4;
         console.log("New playerTotal= " + playerTotal);
-        $('#totalScore').text(playerTotal);
-
-        if (playerTotal == Random) {
-            woohoo();
+        $('.scoreDisplay').text(playerTotal);
+        if (playerTotal == random) {
+            winner();
         }
-        else if (playerTotal > Random) {
+        else if (playerTotal > random) {
             loser();
         }
     });
