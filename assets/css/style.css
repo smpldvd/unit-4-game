@@ -30,3 +30,8 @@ body {
 img {
     align-content: center;
 }
+
+.randomNumber, .scoreDisplay {
+    font-family: 'Love Ya Like A Sister', cursive;
+    font-size: 3rem;
+}

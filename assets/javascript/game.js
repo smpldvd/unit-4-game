@@ -20,8 +20,8 @@ $(document).ready(function () {
     var wins = 0;
     var losses = 0;
 
-    $('.wins').text(wins);
-    $('.losses').text(losses);
+    $('.wins').text("Wins: " + wins);
+    $('.losses').text("Losses: " + losses);
 
     // To reset game after win/lose
     function reset() {
@@ -30,14 +30,14 @@ $(document).ready(function () {
         $('.randomNumber').text(random);
         allNum = Math.floor(Math.random() * 12 + 1);
         playerTotal = 0;
-        $('#scoreDisplay').text(playerTotal);
+        $('#scoreDisplay').empty()g;
     }
 
     // Displaying wins
     function winner() {
         alert("Keep up the good work!");
         wins++;
-        $('.wins').text(wins);
+        $('.wins').text("Wins: " + wins);
         reset();
     }
 
@@ -45,7 +45,7 @@ $(document).ready(function () {
     function loser() {
         alert("Better luck next time Loser!");
         losses++;
-        $('.losses').text(losses);
+        $('.losses').text("Losses: " + losses);
         reset()
     }
 
@@ -54,7 +54,6 @@ $(document).ready(function () {
         playerTotal = playerTotal + num1;
         console.log("New playerTotal= " + playerTotal);
         $('.scoreDisplay').text(playerTotal);
-
         // Set winning/losing conditions
         if (playerTotal == random) {
             winner();
