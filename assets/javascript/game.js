@@ -30,7 +30,7 @@ $(document).ready(function () {
         $('.randomNumber').text(random);
         allNum = Math.floor(Math.random() * 12 + 1);
         playerTotal = 0;
-        $('#scoreDisplay').empty()g;
+        $('#scoreDisplay').empty();
     }
 
     // Displaying wins
@@ -43,7 +43,7 @@ $(document).ready(function () {
 
     // Displaying losses
     function loser() {
-        alert("Better luck next time Loser!");
+        alert("Better luck next time!");
         losses++;
         $('.losses').text("Losses: " + losses);
         reset()
